@@ -21,11 +21,11 @@ const clearBtn = document.getElementById('clear');
 // 3. Write a function to display all items in the #list element
 function updateList() {
        list.innerHTML = '';
-    todoItems.forEach(function(item) {
+    for (let i = 0; i < todoItems.length; i++) {
         const listThing = document.createElement('li');
-        listThing.textContent = item;
+        listThing.textContent = todoItems[i];
         list.appendChild(listThing);
-    });
+    }
 }
 
 updateList();
@@ -35,16 +35,13 @@ updateList();
 // 4. Handle adding a new item when the form is submitted
 addItemButton.addEventListener('click', function () {
     // add your code here
-    const newItem = itemInput.value.trim();
-    if (newItem) {
+    const newItem = itemInput.value; 
+    if (newItem !== '') {
         todoItems.push(newItem);
         itemInput.value = '';
-        updateList();        
+        updateList();
     }
-     
 });
-
-
 
 
 // 5. Sort items alphabetically when sortBtn is clicked
